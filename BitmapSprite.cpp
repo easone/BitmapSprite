@@ -336,7 +336,7 @@ void BitmapSprite::parseHeader(uint8_t* ptr) {
 
     if (!invalidFormat && (bitspp == 16 || bitspp == 32)) {
         // check that color masks are contiguous and non-overlapping
-        bool overlappingMasks = rMask & gMask & bMask & aMask;
+        bool overlappingMasks = (rMask & gMask) || (rMask & bMask) || (rMask & aMask) || (gMask & bMask) || (gMask & aMask) || (bMask & aMask);
         bool rMaskNotContiguous = rMask & (rMask + (1 << __builtin_ctz(rMask)));
         bool gMaskNotContiguous = gMask & (gMask + (1 << __builtin_ctz(gMask)));
         bool bMaskNotContiguous = bMask & (bMask + (1 << __builtin_ctz(bMask)));
