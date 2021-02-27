@@ -1,5 +1,4 @@
 // todo: compatibility with T3.6
-// todo: more BMP formats
 
 #include "MatrixHardware_Teensy4_ShieldV5.h"
 
@@ -50,7 +49,7 @@ void setup() {
 
     /* Allocate sprite memory statically:
      *  dataSize must be large enough to fit the whole .bmp file */
-    const size_t dataSize = 838;
+    const size_t dataSize = 922;
     static uint8_t data[dataSize];
     sprites[0] = BitmapSprite("heart.bmp", data, dataSize);
 
